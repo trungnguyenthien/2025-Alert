@@ -1,0 +1,58 @@
+# Miscellaneous
+*.class
+*.lock
+*.log
+*.pyc
+*.swp
+.DS_Store
+.history
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+
+# Visual Studio Code related
+.classpath
+.project
+.ccls-cache
+
+# Flutter repo-specific
+version
+analysis_benchmark.json
+
+# Packages file containing multi-root paths.
+.packages
+.generated
+
+# Flutter/Dart/Pub related
+.flutter-plugins
+.flutter-plugins-dependencies
+flutter_*.png
+linked_*.ds
+unlinked.ds
+unlinked_spec.ds
+
+# Android related
+*.jks
+
+# iOS/XCode related
+
+# macOS
+
+# Windows
+
+# Linux
+
+# Coverage
+
+# Symbols
+app.*.symbols
+
+# Exceptions to above rules.
+# Monorepo.
+cipd.gclient
+gclient_entries
+python-version
+gclient_previous_custom_vars
+gclient_previous_sync_commits
