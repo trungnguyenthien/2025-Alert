@@ -3,7 +3,7 @@ import 'home_page.dart';
 import 'search_page.dart';
 import 'favorite_page.dart';
 import 'profile_page.dart';
-
+import '../../core/base_page.dart';
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -31,20 +31,18 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final currentPage = _pages[_selectedIndex] as BasePage; // Cast sang BasePage để lấy AppBar
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_getTitle(_selectedIndex)),
-        foregroundColor: Colors.orangeAccent,
-        backgroundColor: Colors.black87, // Màu Cyan cho AppBar
-      ),
-      body: _pages[_selectedIndex], // Display selected page
+      appBar: currentPage.appBar, // Lấy AppBar từ từng page con
+      body: currentPage, // Hiển thị page hiện tại
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.black87,
-        selectedItemColor: Colors.orangeAccent, // Màu Cyan cho icon được chọn
-        unselectedItemColor: Colors.white, // Màu xám cho icon không được chọn
+        selectedItemColor: Colors.orangeAccent, // Màu của tab được chọn
+        unselectedItemColor: Colors.white, // Màu của tab không được chọn
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
@@ -53,21 +51,5 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
     );
-  }
-
-  /// Lấy tiêu đề dựa vào index
-  String _getTitle(int index) {
-    switch (index) {
-      case 0:
-        return "Home";
-      case 1:
-        return "Search";
-      case 2:
-        return "Favorites";
-      case 3:
-        return "Profile";
-      default:
-        return "App";
-    }
   }
 }
