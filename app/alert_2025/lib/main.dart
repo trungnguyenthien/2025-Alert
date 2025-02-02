@@ -1,5 +1,6 @@
-import 'package:alert_2025/my_home_page.dart';
+import 'package:alert_2025/presentation/screens/my_home_page.dart';
 import 'package:flutter/material.dart';
+import 'presentation/screens/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -94,15 +95,19 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     debugPrint("🔵 App is inactive");
   }
 
-  @override
+@override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primaryColor: Colors.cyan, // Màu Cyan cho AppBar
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.cyan, // Dùng màu Cyan cho các phần tử khác
+        ),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MainPage(),
     );
   }
 }
